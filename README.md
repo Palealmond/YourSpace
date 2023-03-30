@@ -135,6 +135,6 @@ https://github.com/Palealmond/YourSpace-Backend/settings/branches
 
 ### TEAM COLLABORATION DETAILS:
 
-* Notion Board: 
+* Notion Board: https://www.notion.so/18ca3642e51e49d188f8fdd735e70bec?v=e7ad97d7fb774c499b89b58d55e914e3
 * Team Expectations:
 * Team Theme Song: https://open.spotify.com/track/78ZzF9pK3foniEnK64XzX5?si=Fxwua-gqRIu6rm63z03KNw
