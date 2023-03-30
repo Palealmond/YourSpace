@@ -56,7 +56,7 @@ https://github.com/Palealmond/YourSpace-Backend/settings/branches
 
 ## WIREFRAMES: 
 
-w
+
 
 
 ## MVP:
@@ -86,7 +86,7 @@ w
 
 ### Server (Back End) <!-- omit in toc -->
 
-- Have working generic controller actions for CRUD using Express, Mongoose, and MongoDB.
+- Have working generic controller actions for CRUD using Python, Postgres, Django
 - Authentication!
 
 ### Styling <!-- omit in toc -->
@@ -105,8 +105,8 @@ w
 ### Deployment <!-- omit in toc -->
 
 - Deploy the fully functional front-end via Vercel.
-- Deploy the back-end via Vercel.
-- Deploy the MongoDB database on [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+- Deploy the back end via Heroku.
+- Deploy the SQL database on [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
 
 ### Procedural <!-- omit in toc -->
 
