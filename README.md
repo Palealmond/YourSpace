@@ -55,6 +55,7 @@ https://github.com/Palealmond/YourSpace-Backend/settings/branches
 
 ## WIREFRAMES: 
 
+![YourSpace](https://user-images.githubusercontent.com/114016876/229153198-001258f9-f18e-4fc1-85b1-dc00b20a35cc.png)
 
 
 
