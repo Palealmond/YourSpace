@@ -10,7 +10,7 @@ YourSpace is a clone of MySpace hoping to evoke the nostalgic feeling of perusin
 
 
 ## API:
-
+https://cloudinary.com/documentation/image_upload_api_reference
 
 ## API SNIPPET:
 
@@ -37,16 +37,6 @@ Upload response
 ]
 ```
 
-## API CODE: 
-
-``` js
-
-}
-
-// E.g.
-
-
-```
 
 ## DATA MODEL:
 ```python
