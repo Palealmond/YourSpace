@@ -87,12 +87,10 @@ class Like(models.Model):
 
 | Route                | HTTP Method | DB Action | Description             |
 | -----------          | ----------- | --------- | ----------------------- |
-| /api/                | GET         | INDEX     | Indexes all reviews     |
-| /api/profile         | GET         | INDEX     | Indexes your reviews    |
-| /api/                | POST        | CREATE    | Create a review         |
-| /api/:anime          | GET         | SHOW      | Shows the anime reviews |
-| /api/profile/:anime  | PUT         | UPDATE    | Update a review         |
-| /api/delete          | DELETE      | DELETE    | Delete a review         |
+| /api/profile         | GET         | INDEX     | Indexes your friends   |
+| /api/profile         | POST        | CREATE    | Create a profile       |
+| /api/profile/:name   | PUT         | UPDATE    | Update profile         |
+| /api/profile         | DELETE      | DELETE    | Delete a account        |
 
 
 ## WIREFRAMES: 
