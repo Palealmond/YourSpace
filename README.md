@@ -1,7 +1,7 @@
 # YourSpace
 MySpace Clone
 
-https://github.com/Palealmond/YourSpace-Backend/settings/branches
+https://github.com/Palealmond/YourSpace-Backend/
 
 
 ## APP DESCRIPTION:
