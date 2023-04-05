@@ -4,7 +4,7 @@ function Profile() {
   return (
     <>
     <div className="profile-container bg-white border-2 border-blue-400 flex flex-col justify-between m-2 max-w-xs sm:w-1/3 ">
-      <h1 className="text-lg font-bold bg-blue-400 bg-blue-600 text-white px-2">Hello, John Doe</h1>
+      <h1 className="text-lg font-bold bg-blue-400 text-white px-2">Hello, John Doe</h1>
 
       <div className="top-profile-container flex flex-row h-full gap-2 pt-2 mb-4">
 
@@ -23,7 +23,7 @@ function Profile() {
       <div className="mb-4 flex flex-col gap-2">
         <div className="flex flex-wrap px-2 gap-x-2 w-full">
           <h1 className="font-bold">View My:</h1>
-          <a className="text-lighter-blue text-blue-700">Profiles</a>
+          <a className="text-lighter-blue text-blue-700">Profile</a>
           <a className="text-lighter-blue text-blue-700">Blog</a>
           <a className="text-lighter-blue text-blue-700">Friends</a>
           <a className="text-lighter-blue text-blue-700">Forum Topics</a>
@@ -38,8 +38,8 @@ function Profile() {
     </div>
 
     <div className="mail-container bg-white border-2 border-blue-400 flex flex-col justify-between m-2 max-w-xs sm:w-1/3">
-      <h1 className="text-sm font-bold bg-blue-400 bg-blue-600 text-white px-2">My Mail</h1>
-      <div className="grid grid-rows-2 grid-cols-2 text-lighter-blue text-blue-700">
+      <h1 className="text-sm font-bold bg-blue-400 text-white px-2">My Mail</h1>
+      <div className="grid grid-rows-2 grid-cols-2 text-lighter-blue text-blue-700 font-bold text-sm">
         <a className="pl-2" href="">my messages</a>
         <a href="">send message</a>
         <a className="pl-2" href="">bulletins</a>
@@ -51,12 +51,35 @@ function Profile() {
       <h1 className="text-sm font-bold px-2 text-lighter-blue text-blue-700">View My Profile</h1>
     </div>
 
-    <div className="mail-container bg-white border-2 border-blue-400 flex flex-col justify-between m-2 max-w-xs sm:w-1/3">
+    <div className="donation-container bg-white border-2 border-blue-400 flex flex-col justify-between m-2 max-w-xs sm:w-1/3">
       <h1 className="text-sm font-bold px-2">YourSpace is a small, independent social network, funded by your donations.</h1>
       <button className="text-sm font-bold px-2 bg-yellow-500 max-w-min mx-auto">Donate</button>
     </div>
 
+    <div className="annoucement-container bg-blue-200 border-2 border-blue-200 flex flex-col justify-between m-2 max-w-xs sm:w-1/3">
+      <h1 className="text-sm font-bold px-2">
+        YourSpace Annoucements</h1>
+    </div>
     
+    <div className="annoucement-container bg-blue-200 border-2 border-blue-200 flex flex-col justify-between m-2 max-w-xs sm:w-1/3">
+      <h1 className="text-sm font-bold px-2">
+       YourSpace Updates </h1>
+    </div>
+
+    <div className="flex flex-row text-sm font-bold px-2 m-2">
+      <h1 className="">Your Latest Blog Entries&nbsp;</h1>
+      <h1 className="text-lighter-blue text-blue-700">[New Entry]</h1>
+    </div>
+
+    <div className="mail-container bg-white border-2 border-blue-400 flex flex-col justify-between m-2 max-w-xs sm:w-1/3">
+      <h1 className="text-sm font-bold bg-blue-400 text-center text-white px-2">{new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</h1>
+      <div className="grid grid-cols-3 text-center text-lighter-blue text-blue-700 font-bold text-sm">
+        <a>Your Friends: </a>
+        <a>Profile Views:</a>
+        <a>Joined: </a>
+      </div>
+    </div>
+
     </>
 
     
