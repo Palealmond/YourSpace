@@ -1,51 +1,56 @@
-import { useState, useEffect } from "react";
+import React, { useState } from 'react';
 import axios from 'axios';
-import { signin } from "../../api/users";
+import { useNavigate } from 'react-router-dom';
 
 function SignIn() {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+  const history = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         const response = await signin(username, password);
-    //         console.log(response);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        try{
-            const response = await axios.post("https://yourspace.herokuapp.com/api/token/", username, password)
-        console.log(response)
-        }
-        catch(err)
-        {
-            console.log(err)
-        }
+  const handleSignIn = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await axios.post('/api/signin', { email, password });
+      localStorage.setItem('token', response.data.token);
+      if (response.data.profile) {
+        history.push(`/profiles/${response.data.profile._id}`);
+      } else {
+        history.push('/create-profile');
+      }
+    } catch (error) {
+      setError(error.response.data.message);
     }
+  };
 
-
-    return (
-    <div className="border-2">
-        SignIn
-        <form onSubmit={handleSubmit}>
+  return (
+    <form onSubmit={handleSignIn}>
+      <h2>Sign In</h2>
+      {error && <div>{error}</div>}
+      <div>
+        <label htmlFor="email">Email</label>
         <input
-          type="text"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
+          type="email"
+          id="email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          required
         />
+      </div>
+      <div>
+        <label htmlFor="password">Password</label>
         <input
           type="password"
+          id="password"
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          onChange={(event) => setPassword(event.target.value)}
+          required
         />
-        <button>SignIn</button>
-      </form>
-    </div>    
-  )
+      </div>
+      <button type="submit">Sign In</button>
+    </form>
+  );
 }
 
-export default SignIn
+export default SignIn;
