@@ -80,6 +80,13 @@ function Profile() {
       </div>
     </div>
 
+    <div className="mail-container border-2 border-yellow-400 flex flex-col justify-between m-2 max-w-xs sm:w-1/3">
+      <h1 className="text-sm font-bold bg-yellow-400 text-center text-red-600 px-2">Friend Requests</h1>
+      <div className="text-center text-lighter-blue font-bold text-sm">
+        <a>0 Open Friend Requests</a>
+      </div>
+    </div>
+
     </>
 
     
