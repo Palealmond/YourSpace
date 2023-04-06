@@ -1,13 +1,20 @@
 import './App.css';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import SignIn from './components/SignIn/SignIn.jsx';
+import SignUp from './components/SignUp/SignUp.jsx';
 import Profile from './components/Profile/Profile';
-import SignIn from './components/SignIn/SignIn';
 
 function App() {
   return (
-    <div>
-      <Profile/>
-      <SignIn />
-    </div>
+
+    <>
+      <Routes>
+        <Route exact path="/" element={<SignIn />} />
+        <Route path="/signup" exact element={<SignUp />} />
+        <Route path="/profile/:id" exact element={<Profile />} />
+      </Routes>
+    </>
   );
 }
 

@@ -1,39 +1,58 @@
-import { useState, useEffect } from "react";
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import { signup } from "../../api/users";
 
-function SignUp() {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+const SignUp = () => {
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: ''
+  });
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await signup(username, password);
-            console.log(response);
-        } catch (error) {
-            console.log(error);
-        }
+  const navigate = useNavigate();
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await axios.post('/create-user/', formData);
+      navigate('/signin');
+    } catch (error) {
+      console.error(error);
     }
+  };
 
-    return (
+  return (
     <div>
-        SignUp
-        <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        />
-        <button>SignUp</button>
+      <h2>Sign Up</h2>
+      <form onSubmit={handleFormSubmit}>
+        <label>
+          Username:
+          <input type="text" name="username" value={formData.username} onChange={handleInputChange} />
+        </label>
+        <br />
+        <label>
+          Email:
+          <input type="email" name="email" value={formData.email} onChange={handleInputChange} />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input type="password" name="password" value={formData.password} onChange={handleInputChange} />
+        </label>
+        <br />
+        <button type="submit">Submit</button>
       </form>
-    </div>    
-  )
-}
+      <span>
+        <Link to="/"> Already got an account, nerd? </Link>
+      </span>
 
-export default SignUp
+    </div>
+  );
+};
+
+export default SignUp;
