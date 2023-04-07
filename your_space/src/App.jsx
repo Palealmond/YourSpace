@@ -10,7 +10,7 @@ import CreateProfile from "./components/Profile/CreateProfile";
 function App() {
   return (
     <div className="bg-gray-200 h-screen">
-      <div className="w-[1080px] max-w-full mx-auto bg-white">
+      <div className="max-w-[1080px] max-w-full mx-auto bg-white">
         <Header />
         <Routes>
           <Route exact path="/" element={<SignIn />} />
