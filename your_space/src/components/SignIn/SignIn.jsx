@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
-    username: '',
-    password: ''
+    username: "",
+    password: "",
   });
 
   const navigate = useNavigate();
@@ -18,12 +18,12 @@ const SignIn = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('/api/login/', formData);
+      const response = await axios.post("/api/login/", formData);
       if (response.data.isAuthenticated) {
         if (response.data.hasProfile) {
-          navigate('/profile');
+          navigate("/profile");
         } else {
-          navigate('/create-profile');
+          navigate("/create-profile");
         }
       }
     } catch (error) {
@@ -32,24 +32,47 @@ const SignIn = () => {
   };
 
   return (
-    <div>
-      <h2>Sign In</h2>
-      <form onSubmit={handleFormSubmit}>
-        <label>
-          Username:
-          <input type="text" name="username" value={formData.username} onChange={handleInputChange} />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input type="password" name="password" value={formData.password} onChange={handleInputChange} />
-        </label>
-        <br />
-        <button type="submit">Submit</button>
-      </form>
-      <span>
-        <Link to="/SignUp"> Get an account nerd </Link>
-      </span>
+    <div className="w-full h-full flex justify-center mt-12">
+      <div className="w-7/8 max-w-md h-1/3 border-2 border-blue-700 flex flex-col justify-center items-center gap-4 p-2">
+        <h2 className="font-extrabold text-blue-700">Sign In</h2>
+        <form
+          className="font-bold flex flex-col items-center px-2 mx-2"
+          onSubmit={handleFormSubmit}
+        >
+          <label>
+            Username:
+            <input
+              className="border-2 border-black mx-2 rounded-md"
+              type="text"
+              name="username"
+              value={formData.username}
+              onChange={handleInputChange}
+            />
+          </label>
+          <br />
+          <label>
+            Password:
+            <input
+              className="border-2 border-black mx-2 rounded-md"
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+            />
+          </label>
+          <br />
+          <div className="w-full text-center">
+            <button className="bg-teal-500 rounded-md py-2 px-4" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+        <span>
+          <Link className="text-blue-700" to="/SignUp">
+            Get an account nerd
+          </Link>
+        </span>
+      </div>
     </div>
   );
 };

@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: ''
+    username: "",
+    email: "",
+    password: "",
   });
 
   const navigate = useNavigate();
@@ -19,38 +19,67 @@ const SignUp = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post('/create-user/', formData);
-      navigate('/signin');
+      await axios.post("/create-user/", formData);
+      navigate("/signin");
     } catch (error) {
       console.error(error);
     }
   };
 
   return (
-    <div>
-      <h2>Sign Up</h2>
-      <form onSubmit={handleFormSubmit}>
-        <label>
-          Username:
-          <input type="text" name="username" value={formData.username} onChange={handleInputChange} />
-        </label>
-        <br />
-        <label>
-          Email:
-          <input type="email" name="email" value={formData.email} onChange={handleInputChange} />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input type="password" name="password" value={formData.password} onChange={handleInputChange} />
-        </label>
-        <br />
-        <button type="submit">Submit</button>
-      </form>
-      <span>
-        <Link to="/"> Already got an account, nerd? </Link>
-      </span>
-
+    <div className="w-full h-full flex justify-center mt-12">
+      <div className="w-7/8 max-w-md h-1/3 border-2 border-blue-700 flex flex-col justify-center items-center gap-4 p-2">
+        <h2 className="font-extrabold text-blue-700">Sign Up</h2>
+        <form
+          className="font-bold flex flex-col items-center px-2 mx-2"
+          onSubmit={handleFormSubmit}
+        >
+          <label>
+            Username:
+            <input
+              className="border-2 border-black mx-2 rounded-md"
+              type="text"
+              name="username"
+              value={formData.username}
+              onChange={handleInputChange}
+            />
+          </label>
+          <br />
+          <label className="ml-9">
+            Email:
+            <input
+              className="border-2 border-black mx-2 rounded-md"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+            />
+          </label>
+          <br />
+          <label>
+            Password:
+            <input
+              className="border-2 border-black mx-2 rounded-md"
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+            />
+          </label>
+          <br />
+          <div className="w-full text-center">
+            <button className="bg-teal-500 rounded-md py-2 px-4" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+        <span>
+          <Link className="text-blue-700" to="/">
+            {" "}
+            Already got an account, nerd?{" "}
+          </Link>
+        </span>
+      </div>
     </div>
   );
 };
