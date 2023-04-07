@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import api from '../../api/apiConfig';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -19,8 +19,8 @@ const SignUp = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("/create-user/", formData);
-      navigate("/signin");
+      await api.signup('/create-user/', formData);
+      navigate('/signin');
     } catch (error) {
       console.error(error);
     }
