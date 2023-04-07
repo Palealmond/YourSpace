@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <>
-      <header className="h-full max-w-full max-w-screen-xl bg-teal-500 flex  flex-col justify-center items-left py-1">
+      <header className="h-full max-w-full md:w-[200px] max-w-screen-xl bg-teal-500 flex  flex-col justify-center items-left py-1">
         <div className="flex justify-center items-center mb-2 gap-5">
           <div className="flex items-center gap-3">
             <img
@@ -71,3 +71,4 @@ function Header() {
   );
 }
 export default Header;
+ 
