@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+// import api from '../../api/apiConfig';
+import { signin } from '../../api/users';
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
@@ -12,13 +13,15 @@ const SignIn = () => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+    console.log(formData);
     setFormData({ ...formData, [name]: value });
   };
+
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("/api/login/", formData);
+      const response = await signin(formData);
       if (response.data.isAuthenticated) {
         if (response.data.hasProfile) {
           navigate("/profile");
@@ -29,6 +32,8 @@ const SignIn = () => {
     } catch (error) {
       console.error(error);
     }
+    console.log(formData);
+
   };
 
   return (
