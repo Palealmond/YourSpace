@@ -5,6 +5,7 @@ import SignIn from "./components/SignIn/SignIn.jsx";
 import SignUp from "./components/SignUp/SignUp.jsx";
 import Profile from "./components/Profile/Profile";
 import Header from "./components/Header/Header";
+import Posts from "./components/Posts/Posts";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route exact path="/" element={<SignIn />} />
         <Route path="/signup" exact element={<SignUp />} />
         <Route path="/profile/:id" exact element={<Profile />} />
+        <Route path="/posts" exact element={<Posts/>} />
       </Routes>
     </>
   );

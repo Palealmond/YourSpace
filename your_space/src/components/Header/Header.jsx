@@ -45,19 +45,23 @@ function Header() {
           <ul className="container mx-auto flex justify-center items-center gap-5 flex-wrap">
             <li>
               <div className="flex flex-wrap px-2 gap-x-3 w-full">
-                <a className="text-lighter-blue text-blue-700">Home |</a>
-                <a className="text-lighter-blue text-blue-700">Browse |</a>
-                <a className="text-lighter-blue text-blue-700">Search |</a>
-                <a className="text-lighter-blue text-blue-700">Messages |</a>
-                <a className="text-lighter-blue text-blue-700">Blog |</a>
-                <a className="text-lighter-blue text-blue-700">Bulletins |</a>
-                <a className="text-lighter-blue text-blue-700">Forum |</a>
-                <a className="text-lighter-blue text-blue-700">Groups |</a>
-                <a className="text-lighter-blue text-blue-700">Layouts |</a>
-                <a className="text-lighter-blue text-blue-700">Layouts |</a>
-                <a className="text-lighter-blue text-blue-700">Favorites |</a>
-                <a className="text-lighter-blue text-blue-700">Invites |</a>
-                <a className="text-lighter-blue text-blue-700">About</a>
+              <Link className="text-xs text-blue-700" to="/Profile/id:">
+         Home
+          </Link>
+                <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Browse </a>
+                <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Search </a>
+                <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Messages </a>
+                <Link className="text-xs text-blue-700" to="/Posts">
+         Blog
+          </Link>
+                <a className="text-xs before:content-[' | ']text-lighter-blue text-blue-700">Bulletins </a>
+                <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Forum </a>
+                <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Groups </a>
+                <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Layouts </a>
+                <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Layouts </a>
+                <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Favorites </a>
+                <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Invites </a>
+                <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">About</a>
               </div>
             </li>
           </ul>
