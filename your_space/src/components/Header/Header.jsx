@@ -5,7 +5,7 @@ function Header() {
   return (
     <>
       <header className="w-full h-full bg-teal-500 flex  flex-col justify-center items-left py-1">
-        <div className="flex flex-col items-center mb-2 gap-5">
+        <div className="flex justify-center items-center mb-2 gap-5">
           <div className="flex items-center gap-3">
             <img
               src="https://i.imgur.com/Tei2Tve.png"
@@ -42,7 +42,7 @@ function Header() {
         </div>
 
         <nav className="container mx-auto px-4 bg-white py-2 rounded">
-          <ul className="container mx-auto flex items-center gap-5 flex-wrap">
+          <ul className="container mx-auto flex justify-center items-center gap-5 flex-wrap">
             <li>
               <div className="flex flex-wrap px-2 gap-x-3 w-full">
                 <a className="text-lighter-blue text-blue-700">Home |</a>
