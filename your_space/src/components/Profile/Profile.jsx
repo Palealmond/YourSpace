@@ -2,7 +2,7 @@ import React from "react";
 
 function Profile() {
   return (
-    <div className="max-w-[1060px]">
+    <div className="max-w-[300px] lg:max-w-[1060px]">
       <div className="profile-container bg-white border-2 border-blue-400 flex flex-col justify-between m-2 max-w-xs sm:w-1/3 ">
         <h1 className="text-lg font-bold bg-blue-400 text-white px-2">
           Hello, John Doe
