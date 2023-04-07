@@ -8,6 +8,7 @@ import Header from "./components/Header/Header";
 import CreateProfile from "./components/Profile/CreateProfile";
 import Posts from "./components/Posts/Posts";
 
+
 function App() {
   return (
     <div className="bg-gray-200 h-screen">
@@ -18,8 +19,8 @@ function App() {
           <Route path="/signup" exact element={<SignUp />} />
           <Route path="/profile/:id" exact element={<Profile />} />
           <Route path="/create-profile" exact element={<CreateProfile />} />
-          <Route path="/posts" exact element={<Posts/>} />
-      </Routes>
+          <Route path="/posts" exact element={<Posts />} />
+        </Routes>
       </div>
     </div>
   );
