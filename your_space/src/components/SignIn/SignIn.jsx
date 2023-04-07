@@ -21,7 +21,7 @@ const SignIn = () => {
       const response = await axios.post("/api/login/", formData);
       if (response.data.isAuthenticated) {
         if (response.data.hasProfile) {
-          navigate("/profile");
+          navigate(`/profile/${response.data.id}`);
         } else {
           navigate("/create-profile");
         }
