@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <>
-      <header className="w-full h-full bg-teal-500 flex  flex-col justify-center items-left py-1">
+      <header className="h-full max-w-full max-w-screen-xl bg-teal-500 flex  flex-col justify-center items-left py-1">
         <div className="flex justify-center items-center mb-2 gap-5">
           <div className="flex items-center gap-3">
             <img
@@ -24,7 +24,7 @@ function Header() {
               type="search"
               id="search"
               placeholder="Type query"
-              className="flex-auto px-3 py-1.5 rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out focus:border-primary-600 focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200"
+              className="flex-auto px-3 py-1.5 rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out focus:border-primary-600 focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-400 bg-white"
             />
             <button
               type="submit"

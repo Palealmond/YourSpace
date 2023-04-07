@@ -8,14 +8,16 @@ import Header from "./components/Header/Header";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Routes>
-        <Route exact path="/" element={<SignIn />} />
-        <Route path="/signup" exact element={<SignUp />} />
-        <Route path="/profile/:id" exact element={<Profile />} />
-      </Routes>
-    </>
+    <div className="bg-gray-200 h-screen">
+      <div className="w-[1080px] max-w-full mx-auto bg-white">
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<SignIn />} />
+          <Route path="/signup" exact element={<SignUp />} />
+          <Route path="/profile/:id" exact element={<Profile />} />
+        </Routes>
+      </div>
+    </div>
   );
 }
 
