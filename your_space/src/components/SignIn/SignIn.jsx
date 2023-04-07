@@ -9,31 +9,40 @@ const SignIn = () => {
     password: "",
   });
 
+  // useEffect(() => {
+  //   if (auth.user) {
+  //     navigate(`/profile/${response.data.userId}`);
+  //   }
+  // }, [auth])
+
   const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    console.log(formData);
     setFormData({ ...formData, [name]: value });
   };
+
+
 
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await signin(formData);
-      if (response.data.isAuthenticated) {
+      console.log(response);
+      if (response.data) {
+        // Get user profile data, then go to pages
         if (response.data.hasProfile) {
-          navigate(`/profile/${response.data.id}`);
+          console.log("Going to your profile");
+          navigate(`/profile/${response.data.userId}`); // include userId in URL
         } else {
-          navigate("/create-profile");
+          console.log("Need to make create-profile?");
+          navigate("/create-profile/");
         }
       }
     } catch (error) {
       console.error(error);
     }
-    console.log(formData);
-
   };
 
   return (

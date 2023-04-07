@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { isAuthenticated } from "../../api/users";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
+
+  const navigate = useNavigate()
+  const auth = isAuthenticated();
+
+  useEffect(() => {
+    if (!auth) {
+      navigate('/');
+    }
+  }, [])
+
   return (
     <div className="max-w-[1060px]">
       <div className="profile-container bg-white border-2 border-blue-400 flex flex-col justify-between m-2 max-w-xs sm:w-1/3 ">
