@@ -1,5 +1,8 @@
 import React from 'react'
-import { Textarea, Input } from "@material-tailwind/react";
+// import { Textarea, Input } from "@material-tailwind/react";
+
+
+
 
 export default function Posts() {
   return (

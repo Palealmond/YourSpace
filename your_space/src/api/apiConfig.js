@@ -1,11 +1,12 @@
 import axios from 'axios'
 
-const LOCALSTORAGE_KEY = 'token';
+const LOCALSTORAGE_KEY = 'TOKEN';
 
 
 const api = axios.create({
   baseURL: 'https://yourspace.herokuapp.com',
 })
+
 
 
 api.interceptors.request.use(config => {
