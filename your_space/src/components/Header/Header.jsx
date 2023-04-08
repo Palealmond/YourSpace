@@ -1,7 +1,17 @@
-import React from "react";
+import { React, useState } from "react";
 import { Link } from "react-router-dom";
 
 function Header() {
+
+  const [refresh, setRefresh] = useState(false);
+
+  const handleClick = () => {
+    localStorage.clear();
+    setRefresh(!refresh);
+  };
+
+
+
   return (
     <>
       <header className="h-full max-w-full md:w-[200px] max-w-screen-xl bg-teal-500 flex  flex-col justify-center items-left py-1">
@@ -35,6 +45,7 @@ function Header() {
           </form>
           <button
             type="button"
+            onClick={handleClick}
             className="px-4 py-1 rounded bg-teal-500 text-white hover:bg-white hover:text-teal-500 font-xs transition duration-300 ease-in-out"
           >
             Logout
@@ -45,15 +56,15 @@ function Header() {
           <ul className="container mx-auto flex justify-center items-center gap-5 flex-wrap">
             <li>
               <div className="flex flex-wrap px-2 gap-x-3 w-full">
-              <Link className="text-xs text-blue-700" to="/Profile/id:">
-         Home
-          </Link>
+                <Link className="text-xs text-blue-700" to="/Profile/id:">
+                  Home
+                </Link>
                 <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Browse </a>
                 <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Search </a>
                 <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Messages </a>
                 <Link className="text-xs text-blue-700" to="/Posts">
-         Blog
-          </Link>
+                  Blog
+                </Link>
                 <a className="text-xs before:content-[' | ']text-lighter-blue text-blue-700">Bulletins </a>
                 <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Forum </a>
                 <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Groups </a>
@@ -71,4 +82,3 @@ function Header() {
   );
 }
 export default Header;
- 
