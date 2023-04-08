@@ -1,17 +1,11 @@
-import { React, useState } from "react";
+import { React } from "react";
 import { Link } from "react-router-dom";
 
 function Header() {
-
-  const [refresh, setRefresh] = useState(false);
-
   const handleClick = () => {
     localStorage.clear();
-    setRefresh(!refresh);
-  };
-
-
-
+    window.location.reload();
+  }
   return (
     <>
       <header className="h-full max-w-full md:w-[200px] max-w-screen-xl bg-teal-500 flex  flex-col justify-center items-left py-1">
