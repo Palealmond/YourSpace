@@ -20,7 +20,7 @@ const SignUp = () => {
     event.preventDefault();
     try {
       await api.signup('/create-user/', formData);
-      navigate('/signin');
+      navigate('/');
     } catch (error) {
       console.error(error);
     }
