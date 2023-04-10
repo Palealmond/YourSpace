@@ -3,15 +3,20 @@ import api from "./apiConfig";
 const LOCALSTORAGE_KEY = "TOKEN";
 const LOCALSTORAGE_ID = "USER_ID";
 const LOCALSTORAGE_USER_NAME = "USER_NAME";
+const LOCALSTORAGE_BIO = "BIO";
 
-export function getUser() {
-  const token = localStorage.getItem(LOCALSTORAGE_KEY);
-  return token;
+export async function getUser() {
+  // const token = localStorage.getItem("USER_ID");
+  // console.log(token);
+  // return token;
+  const res = await api.get(`profiles/:username`);
+  console.log(res);
+  return res;
 }
 
 export async function signIn(username, password) {
   const response = await api.post("/api/login/", { username, password });
-
+  console.log(response);
   if (response.data.token) {
     localStorage.setItem(LOCALSTORAGE_KEY, response.data.token);
 
@@ -24,7 +29,7 @@ export async function signIn(username, password) {
       localStorage.setItem(LOCALSTORAGE_USER_NAME, response.data.username);
     }
 
-    return response.data;
+    return { login: true, message: "Logged In." };
   } else if (response.data.isUser) {
     return {
       login: false,
@@ -47,8 +52,10 @@ export function isAuthenticated() {
   return user !== null;
 }
 
-export async function getProfile(id, body) {
-  const response = await api.patch(`/profiles/${id}`, body);
+export async function getProfile() {
+  const response = await api.get(
+    `/profiles/${localStorage.getItem("USER_NAME")}`
+  );
   return response.data;
 }
 

@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from "react";
 // import { isAuthenticated } from "../../api/users";
 // import { useNavigate } from "react-router-dom";
-import { getProfile } from "../../api/users";
+import { getUser } from "../../api/users";
+import CreateProfile from "./CreateProfile";
+import { getProfile } from "../../api/profile";
 
 function Profile() {
   const [user, setUser] = useState(null);
-  const userId = localStorage.getItem("ID");
-  console.log(userId);
 
   useEffect(() => {
-    getProfile(userId)
-      .then((data) => console.log("DATA: " + data))
-      .catch((error) => console.log(error));
-  }, [userId]);
+    setUser(getProfile(localStorage.getItem("USER_ID")));
+  }, []);
 
-  if (!user) {
-    return <div>Loading...</div>;
-  }
+  // if (!user) {
+  //   return <div>Loading...</div>;
+  // }
+
   return (
     <>
       {user ? (
@@ -29,36 +28,15 @@ function Profile() {
             <div className="top-profile-container flex flex-row h-full gap-2 pt-2 mb-4">
               {/* <div className="profile-header"> */}
               <img
-                src="https://static.spacehey.net/img/default/profilepic.png"
+                src={user.profile_image}
                 alt="Profile"
                 className="h-1/2 w-1/2"
               />
               {/* </div> */}
               <div className="profile-actions w-full text-xs flex flex-col justify-start gap-y-4 h-full pt-8 font-bold text-lighter-blue text-blue-700 ">
-                <a
-                  onClick={() => console.log("Edit Profile")}
-                  className="underline"
-                >
-                  Edit Profile
-                </a>
-                <a
-                  onClick={() => console.log("Edit Status")}
-                  className="underline"
-                >
-                  Edit Status
-                </a>
-                <a
-                  onClick={() => console.log("Edit/Add Photo")}
-                  className="underline"
-                >
-                  Edit/Add Photo
-                </a>
-                <a
-                  onClick={() => console.log("Account Settings")}
-                  className="underline"
-                >
-                  Account Settings
-                </a>
+                <a>Bio: {user.bio}</a>
+                <a>Location: {user.location}</a>
+                <a>Birthdate: {user.birthdate}</a>
               </div>
             </div>
 
@@ -159,11 +137,10 @@ function Profile() {
           </div>
         </div>
       ) : (
-        <div>Loading...</div>
+        <CreateProfile />
       )}
     </>
   );
 }
 
 export default Profile;
-

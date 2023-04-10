@@ -6,6 +6,8 @@ import Posts from "./components/Posts/Posts";
 import CreateProfile from "./components/Profile/CreateProfile";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import SignUp from "./components/SignUp/SignUp.jsx";
+import Friendship from "./components/Friendship/Friendship.jsx";
+import FriendRequest from "./components/FriendRequest/FriendRequest.jsx";
 
 const AuthenticationContext = createContext();
 
@@ -54,6 +56,8 @@ function App() {
               <Route path="/" element={<Profile />} />
               <Route path="/create-profile" element={<CreateProfile />} />
               <Route path="/posts" element={<Posts />} />
+              <Route path="/friendships" element={<Friendship />} />
+              <Route path="/friend-requests" element={<FriendRequest />} />
             </Routes>
           </>
         ) : (
