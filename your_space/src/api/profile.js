@@ -7,30 +7,12 @@ export async function getProfile(id) {
   return response.data;
 }
 
-export async function createProfile(
-  username,
-  name,
-  bio,
-  location,
-  birthdate,
-  profileImage
-) {
-  const response = await api.post(
-    "/profiles",
-    {
-      username,
-      name,
-      bio,
-      location,
-      birthdate,
-      profileImage: "Profile image",
-    },
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
+export async function createProfile(data) {
+  const response = await api.post("/profiles/", data, {
+    headers: {
+      "Content-Type": "multipart/form-data",
     }
-  );
+  });
 
   return response.data;
 }

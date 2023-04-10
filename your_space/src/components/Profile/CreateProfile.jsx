@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {createProfile} from "../../api/profile.js";
+import { createProfile } from "../../api/profile.js";
 
 const CreateProfile = () => {
   const [formData, setFormData] = useState({
@@ -26,9 +26,7 @@ const CreateProfile = () => {
       formDataObj.append('profileImage', formData.profileImage);
 
 
-       await createProfile('/', formDataObj);
-      console.log();
-      // window.location.href = "/";
+      await createProfile(formDataObj);
     } catch (error) {
       console.log(error);
     }
@@ -87,9 +85,9 @@ const CreateProfile = () => {
                 type="date"
                 name="birthdate"
                 onChange={handleInputChange}
-                />
-              </label>
-              <br />
+              />
+            </label>
+            <br />
             <label className="font-extrabold text-blue-700">
               Profile Image:
               <input
