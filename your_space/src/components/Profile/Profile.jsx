@@ -3,15 +3,20 @@ import React, { useEffect, useState } from "react";
 
 // import { isAuthenticated } from "../../api/users";
 // import { useNavigate } from "react-router-dom";
-import { getUser } from "../../api/users";
 import CreateProfile from "./CreateProfile";
 import { getProfile } from "../../api/profile";
 
 function Profile() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
+
+  const getUserData = async () => {
+    const profile = await getProfile(localStorage.getItem("USER_ID"));
+    setUser(profile);
+  };
+  
 
   useEffect(() => {
-    setUser(getProfile(localStorage.getItem("USER_ID")));
+    getUserData()
   }, []);
 
   // if (!user) {
@@ -20,11 +25,11 @@ function Profile() {
 
   return (
     <>
-      {user ? (
+      {user?.name ? (
         <div className="max-w-[300px] lg:max-w-[1060px]">
           <div className="profile-container bg-white border-2 border-blue-400 flex flex-col justify-between m-2 max-w-xs sm:w-1/3 ">
             <h1 className="text-lg font-bold bg-blue-400 text-white px-2">
-              Hello, {user.username}
+              Hello, {user.name}
             </h1>
 
             <div className="top-profile-container flex flex-row h-full gap-2 pt-2 mb-4">
