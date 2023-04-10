@@ -10,12 +10,30 @@ export default function Posts() {
   
   const [posts, setPosts] = useState([]);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('/posts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      setPosts([...posts, data]);
+      setFormData({ subject: '', category: '', content: '' });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <div className="py-12">
         <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
           <div className="p-6 bg-white border-b border-gray-200">
-            <form method="POST" action="/">
+            <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label className="text-xl text-gray-600">
                   Subject
@@ -87,13 +105,8 @@ export default function Posts() {
                   }
                 ></textarea>
                 <button
-                  role="submit"
+                  type="submit"
                   className="p-3 bg-blue-500 text-white hover:bg-blue-400"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setPosts([...posts, formData]);
-                    setFormData({ subject: '', category: '', content: '' });
-                  }}
                 >
                   Submit
                 </button>
@@ -102,9 +115,9 @@ export default function Posts() {
           </div>
         </div>
       </div>
-      </>
-
+    </>
   );
 }
+
 
 
