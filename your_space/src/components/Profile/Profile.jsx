@@ -149,24 +149,3 @@ function Profile() {
 
 export default Profile;
 
-{
-  /* <div className="contact-container bg-white border-2 border-lighter-blue w-80 flex flex-col justify-between p-6 mt-6">
-        <div className="contact-header mb-2 bg-blue-400 bg-blue-600 text-white px-2 h-10 flex items-center justify-between">
-          <h2 className="text-lg font-bold">My Mail</h2>
-          <div className="message-actions">
-            <button onClick={() => console.log('Open Messages')} className="bg-lighter-blue text-white px-2 py-1 rounded-md mr-2">Messages</button>
-            <button onClick={() => console.log('Send Message')} className="bg-lighter-blue text-white px-2 py-1 rounded-md">Send Message</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact w-full border-2 border-lighter-blue p-4">
-        <div class="url-info view-full-profile text-center">
-          <button onClick={() => console.log('View Your Profile')} className="underline text-lighter-bluefont-bold text-blue-700 text-s font-bold">View Your Profile</button>
-        </div>
-      </div>
-
-      <div className="new-entry-container bg-white border-2 border-lighter-blue w-80 h-96 flex flex-col justify-between p-6 ml-6">
-        New entry content
-      </div> */
-}
