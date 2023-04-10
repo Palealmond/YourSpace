@@ -71,7 +71,7 @@ export default function SignIn({ onSignIn }) {
       <span>
         <Link className="text-blue-700" to="/">
           {" "}
-          Get an account, nerd{" "}
+          Need an account?{" "}
         </Link>
       </span>
     </>
