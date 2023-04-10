@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import api from "../../api/apiConfig";
-import api from "../../api/apiConfig";
+
+
 // import { isAuthenticated } from "../../api/users";
 // import { useNavigate } from "react-router-dom";
 import { getUser } from "../../api/users";
