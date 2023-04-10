@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+
+
 // import { isAuthenticated } from "../../api/users";
 // import { useNavigate } from "react-router-dom";
 import { getUser } from "../../api/users";
@@ -141,6 +143,7 @@ function Profile() {
       )}
     </>
   );
+  
 }
 
 export default Profile;

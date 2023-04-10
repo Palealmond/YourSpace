@@ -39,6 +39,7 @@ export async function updateProfile(id, profile) {
   const response = await api.put(`/profiles/${id}`, profile);
   return response.data;
 }
+
 export async function deleteProfile(id) {
   const response = await api.delete(`/profiles/${id}`);
   return response.data;

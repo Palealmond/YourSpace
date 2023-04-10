@@ -3,7 +3,9 @@ import api from "./apiConfig";
 const LOCALSTORAGE_KEY = "TOKEN";
 const LOCALSTORAGE_ID = "USER_ID";
 const LOCALSTORAGE_USER_NAME = "USER_NAME";
-const LOCALSTORAGE_BIO = "BIO";
+
+
+
 
 export async function getUser() {
   // const token = localStorage.getItem("USER_ID");
