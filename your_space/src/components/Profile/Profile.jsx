@@ -9,7 +9,7 @@ function Profile() {
   const userId = localStorage.getItem("user_id");
 
   useEffect(() => {
-    fetch(`/profile/${userId}`)
+    fetch(`https://yourspace.herokuapp.com/profile/${userId}`)
       .then((response) => response.json())
       .then((data) => setUser(data));
   }, [userId]);
