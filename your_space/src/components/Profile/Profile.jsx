@@ -1,23 +1,27 @@
-import React, { useEffect } from "react";
-import { isAuthenticated } from "../../api/users";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+// import { isAuthenticated } from "../../api/users";
+// import { useNavigate } from "react-router-dom";
 
 function Profile() {
 
-  const navigate = useNavigate()
-  const auth = isAuthenticated();
+
+  const [user, setUser] = useState(null);
+  const userId = localStorage.getItem("user_id");
 
   useEffect(() => {
-    if (!auth) {
-      navigate('/');
-    }
-  }, [])
+    fetch(`/profile/${userId}`)
+      .then((response) => response.json())
+      .then((data) => setUser(data));
+  }, [userId]);
 
+  if (!user) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="max-w-[300px] lg:max-w-[1060px]">
       <div className="profile-container bg-white border-2 border-blue-400 flex flex-col justify-between m-2 max-w-xs sm:w-1/3 ">
         <h1 className="text-lg font-bold bg-blue-400 text-white px-2">
-          Hello, John Doe
+          Hello, {user.username}
         </h1>
 
         <div className="top-profile-container flex flex-row h-full gap-2 pt-2 mb-4">
