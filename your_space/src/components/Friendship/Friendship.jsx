@@ -52,16 +52,20 @@ function Friendship() {
   return (
     <div>
       <h1>My Friends</h1>
-      <ul>
-        {friendships.map((friendship) => (
-          <li key={friendship.id}>
-            {friendship.user1.username} and {friendship.user2.username}
-            <button onClick={() => handleUpdateFriendship(friendship.id)}>
-              Update Friendship
-            </button>
-          </li>
-        ))}
-      </ul>
+      {friendships && friendships.length > 0 ? (
+        <ul>
+          {friendships.map((friendship) => (
+            <li key={friendship.id}>
+              {friendship.user1.username} and {friendship.user2.username}
+              <button onClick={() => handleUpdateFriendship(friendship.id)}>
+                Update Friendship
+              </button>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No friendships to display.</p>
+      )}
       <button onClick={handleCreateFriendship}>Add Friend</button>
     </div>
   );
