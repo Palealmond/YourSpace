@@ -54,17 +54,17 @@ function App() {
             <Header onLogout={handleLogout} />
             <Routes>
               <Route path="/" element={<Profile />} />
-              <Route path="/create-profile" element={<CreateProfile />} />
-              <Route path="/posts" element={<Posts />} />
-              <Route path="/friendships" element={<Friendship />} />
-              <Route path="/friend-requests" element={<FriendRequest />} />
+              <Route path="/create-profile/" element={<CreateProfile />} />
+              <Route path="/posts/" element={<Posts />} />
+              <Route path="/friendships/" element={<Friendship />} />
+              <Route path="/friend-requests/" element={<FriendRequest />} />
             </Routes>
           </>
         ) : (
           <Routes>
             <Route path="/" element={<SignIn onSignIn={handleSignIn} />} />
             <Route
-              path="/signup"
+              path="/signup/"
               element={<SignUp onSignUp={handleSignUp} />}
             />
           </Routes>
