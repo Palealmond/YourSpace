@@ -1,87 +1,63 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import api from '../../api/apiConfig';
+import { signUp } from '../../api/users.js';
 
-const SignUp = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
-
+export default function SignUp({ onSignUp}) {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      await api.signup('/create-user/', formData);
-      navigate('/');
-    } catch (error) {
-      console.error(error);
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    if (!username || !password || !email) {
+      setError('Please enter your username, email, and password');
+      return;
     }
-  };
+    const res = await signUp(username, password, email);
+    if (res.error) {
+      setError(res.error);
+      return;
+    }
+    onSignUp(res.user);
+    navigate('/');
+  }
 
   return (
-    <div className="w-full h-full flex justify-center mt-12">
-      <div className="w-7/8 max-w-md h-1/3 border-2 border-blue-700 flex flex-col justify-center items-center gap-4 p-2">
-        <h2 className="font-extrabold text-blue-700">Sign Up</h2>
-        <form
-          className="font-bold flex flex-col items-center px-2 mx-2"
-          onSubmit={handleFormSubmit}
-        >
-          <label>
-            Username:
-            <input
-              className="border-2 border-black mx-2 rounded-md"
-              type="text"
-              name="username"
-              value={formData.username}
-              onChange={handleInputChange}
-            />
-          </label>
-          <br />
-          <label className="ml-9">
-            Email:
-            <input
-              className="border-2 border-black mx-2 rounded-md"
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-            />
-          </label>
-          <br />
-          <label>
-            Password:
-            <input
-              className="border-2 border-black mx-2 rounded-md"
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleInputChange}
-            />
-          </label>
-          <br />
-          <div className="w-full text-center">
-            <button className="bg-teal-500 rounded-md py-2 px-4" type="submit">
-              Submit
-            </button>
-          </div>
-        </form>
-        <span>
-          <Link className="text-blue-700" to="/">
-            {" "}
-            Already got an account, nerd?{" "}
-          </Link>
-        </span>
+    <form onSubmit={handleFormSubmit}>
+      <div>
+        <label htmlFor="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
       </div>
-    </div>
+      <div>
+        <label htmlFor="Email ">Email:</label>
+        <input
+          type="email"
+          id="email"
+          value={email} 
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+      {error && <p>{error}</p>}
+      <button type="submit">Sign Up</button>
+      <p>
+        Already have an account? <Link to="/signin">Sign In</Link>
+      </p>
+    </form>
   );
-};
-
-export default SignUp;
+}

@@ -5,9 +5,18 @@ export async function getPosts() {
   return response.data
 }
 
-export async function createPost(username, email, post) {
+export async function createPost( title, content, subject, category) {
   const response = await api.post('/post/', {
-    username,email, post
-  })
+    title, content, subject, category, 
+  }, {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+  return response.data
+}
+
+export async function deletePost(title) {
+  const response = await api.delete(`/post/${title}`)
   return response.data
 }

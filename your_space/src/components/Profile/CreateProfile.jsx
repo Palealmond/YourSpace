@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import {createProfile} from "../../api/profile.js";
 
 const CreateProfile = () => {
   const [formData, setFormData] = useState({
@@ -25,10 +25,12 @@ const CreateProfile = () => {
       formDataObj.append('birthdate', formData.birthdate);
       formDataObj.append('profileImage', formData.profileImage);
 
-      const response = await axios.post("/profiles/", formDataObj);
-      console.log(response.data); // do something with the response data
+
+       await createProfile('/', formDataObj);
+      console.log();
+      // window.location.href = "/";
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
 

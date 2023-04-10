@@ -26,7 +26,7 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem('TOKEN');
     setIsAuthenticated(false);
-    navigate('/signin');
+    navigate('/');
   }
   const handleSignUp = () => {
     const local = localStorage.getItem('TOKEN')
@@ -50,7 +50,7 @@ function App() {
     <>
     <AuthenticationContext.Provider value={isAuthenticated}>
       {isAuthenticated ? (
-        <>
+          <>
           <Header onLogout={handleLogout} />
           <Routes>
             <Route path="/" element={<Profile />} />

@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { signIn } from '../../api/users.js'
-import { Link } from 'react-router-dom';
+import { getProfile } from '../../api/users.js'
+import { signIn } from '../../api/users.js';
+import { Link, useNavigate } from 'react-router-dom';
 
-function SignIn({ onSignIn }) {
+export default function SignIn({ onSignIn }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,6 +21,17 @@ function SignIn({ onSignIn }) {
       return;
     }
     onSignIn(res.user);
+
+    // Check if user has a profile
+    const profileRes = await getProfile(res.user.id);
+    if (profileRes.error) {
+      // User doesn't have a profile, navigate to create profile page
+      navigate('/create-profile');
+    }
+    else {
+      // User has a profile, navigate to profile page
+      navigate('/');
+    }
   };
 
   return (
@@ -44,6 +57,3 @@ function SignIn({ onSignIn }) {
     </>
   )
 }
-
-export default SignIn;
-
