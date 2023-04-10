@@ -77,7 +77,6 @@ export default function Posts() {
                     name="action"
                   >
                     <option>Save and Publish</option>
-                    <option>Save Draft</option>
                   </select>
                   <button
                     role="submit"

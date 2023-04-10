@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import Posts from "./components/Posts/Posts";
 import CreateProfile from "./components/Profile/CreateProfile";
 import { Routes, Route, useNavigate } from "react-router-dom";
+import SignUp from "./components/SignUp/SignUp.jsx";
 
 const AuthenticationContext = createContext()
 
@@ -27,12 +28,26 @@ function App() {
     setIsAuthenticated(false);
     navigate('/signin');
   }
+  const handleSignUp = () => {
+    const local = localStorage.getItem('TOKEN')
+    if (local) {
+      setIsAuthenticated(true)
+    }
+    else {
+      setIsAuthenticated(false)
+    }
+  }
 
   useEffect(() => {
     handleSignIn()
   }, [])
 
+  useEffect(() => {
+    handleSignUp()
+  }, [])
+
   return (
+    <>
     <AuthenticationContext.Provider value={isAuthenticated}>
       {isAuthenticated ? (
         <>
@@ -43,11 +58,16 @@ function App() {
             <Route path="/posts" element={<Posts />} />
           </Routes>
         </>
-      ) : (
-        <SignIn onSignIn={handleSignIn} />
-      )}
-    </AuthenticationContext.Provider>
+        ) : (
+            <Routes>
+              <Route path="/" element={<SignIn onSignIn={handleSignIn} />} />
+              <Route path="/signup" element={<SignUp onSignUp={handleSignUp} />} />
+            </Routes>
+        )}
+      </AuthenticationContext.Provider>
+    </>
   );
 }
 
 export default App;
+

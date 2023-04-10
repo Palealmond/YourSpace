@@ -7,9 +7,8 @@ const CreateProfile = () => {
     bio: "",
     location: "",
     birthdate: "",
-    // interests: "",
+    profileImage: null,
   });
-  const [imageFile, setImageFile] = useState(null);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -19,7 +18,14 @@ const CreateProfile = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("/create-profile/", formData);
+      const formDataObj = new FormData();
+      formDataObj.append('name', formData.name);
+      formDataObj.append('bio', formData.bio);
+      formDataObj.append('location', formData.location);
+      formDataObj.append('birthdate', formData.birthdate);
+      formDataObj.append('profileImage', formData.profileImage);
+
+      const response = await axios.post("/profiles/", formDataObj);
       console.log(response.data); // do something with the response data
     } catch (error) {
       console.error(error);
@@ -28,12 +34,7 @@ const CreateProfile = () => {
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
-    setImageFile(file); // Set the selected file as imageFile state
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setFormData({ ...formData, profileImage: reader.result });
-    };
-    reader.readAsDataURL(file);
+    setFormData({ ...formData, profileImage: file });
   };
 
   return (
@@ -83,11 +84,10 @@ const CreateProfile = () => {
                 className="border-2 border-black mx-2 rounded-md text-black"
                 type="date"
                 name="birthdate"
-                value={formData.birthdate}
                 onChange={handleInputChange}
-              />
-            </label>
-            <br />
+                />
+              </label>
+              <br />
             <label className="font-extrabold text-blue-700">
               Profile Image:
               <input
