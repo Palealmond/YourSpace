@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
 
 function Profile() {
-
-
   const [user, setUser] = useState(null);
   const userId = localStorage.getItem("user_id");
 
@@ -62,7 +60,9 @@ function Profile() {
             <h1 className="font-bold">View My:</h1>
             <a className="text-lighter-blue text-blue-700">Profile</a>
             <a className="text-lighter-blue text-blue-700">Blog</a>
-            <a className="text-lighter-blue text-blue-700">Friends</a>
+            <a className="text-lighter-blue text-blue-700" href="/friendships">
+              Friends
+            </a>
             <a className="text-lighter-blue text-blue-700">Forum Topics</a>
           </div>
 

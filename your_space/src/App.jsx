@@ -1,4 +1,4 @@
-import React, { createContext , useEffect, useState} from "react";
+import React, { createContext, useEffect, useState } from "react";
 import SignIn from "./components/SignIn/SignIn.jsx";
 import Profile from "./components/Profile/Profile";
 import Header from "./components/Header/Header";
@@ -7,62 +7,63 @@ import CreateProfile from "./components/Profile/CreateProfile";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import SignUp from "./components/SignUp/SignUp.jsx";
 
-const AuthenticationContext = createContext()
+const AuthenticationContext = createContext();
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
 
   const handleSignIn = () => {
-    const local = localStorage.getItem('TOKEN')
+    const local = localStorage.getItem("TOKEN");
     if (local) {
-      setIsAuthenticated(true)
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
     }
-    else {
-      setIsAuthenticated(false)
-    }
-  }
+  };
 
   const handleLogout = () => {
-    localStorage.removeItem('TOKEN');
+    localStorage.removeItem("TOKEN");
     setIsAuthenticated(false);
-    navigate('/');
-  }
+    navigate("/");
+  };
   const handleSignUp = () => {
-    const local = localStorage.getItem('TOKEN')
+    const local = localStorage.getItem("TOKEN");
     if (local) {
-      setIsAuthenticated(true)
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
     }
-    else {
-      setIsAuthenticated(false)
-    }
-  }
+  };
 
   useEffect(() => {
-    handleSignIn()
-  }, [])
+    handleSignIn();
+  }, []);
 
   useEffect(() => {
-    handleSignUp()
-  }, [])
+    handleSignUp();
+  }, []);
 
   return (
     <>
-    <AuthenticationContext.Provider value={isAuthenticated}>
-      {isAuthenticated ? (
+      <AuthenticationContext.Provider value={isAuthenticated}>
+        {isAuthenticated ? (
           <>
-          <Header onLogout={handleLogout} />
-          <Routes>
-            <Route path="/" element={<Profile />} />
-            <Route path="/create-profile" element={<CreateProfile />} />
-            <Route path="/posts" element={<Posts />} />
-          </Routes>
-        </>
-        ) : (
+            <Header onLogout={handleLogout} />
             <Routes>
-              <Route path="/" element={<SignIn onSignIn={handleSignIn} />} />
-              <Route path="/signup" element={<SignUp onSignUp={handleSignUp} />} />
+              <Route path="/" element={<Profile />} />
+              <Route path="/create-profile" element={<CreateProfile />} />
+              <Route path="/posts" element={<Posts />} />
             </Routes>
+          </>
+        ) : (
+          <Routes>
+            <Route path="/" element={<SignIn onSignIn={handleSignIn} />} />
+            <Route
+              path="/signup"
+              element={<SignUp onSignUp={handleSignUp} />}
+            />
+          </Routes>
         )}
       </AuthenticationContext.Provider>
     </>
@@ -70,4 +71,3 @@ function App() {
 }
 
 export default App;
-
