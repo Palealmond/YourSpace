@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
+import api from "../../api/apiConfig";
 // import { isAuthenticated } from "../../api/users";
-// import { useNavigate } from "react-router-dom";
-
+// import { useNavigate } from "react-router
 function Profile() {
-
 
   const [user, setUser] = useState(null);
   const userId = localStorage.getItem("user_id");
 
   useEffect(() => {
-    fetch(`https://yourspace.herokuapp.com/profile/${userId}`)
+    api.get(`https://yourspace.herokuapp.com/profiles/`)
       .then((response) => response.json())
       .then((data) => setUser(data));
   }, [userId]);
@@ -93,6 +92,7 @@ function Profile() {
           <a href="">post bulletin</a>
         </div>
       </div>
+      
 
       <div className="mail-container bg-white border-2 border-blue-400 flex flex-col justify-between m-2 max-w-xs sm:w-1/3 ">
         <h1 className="text-sm font-bold px-2 text-lighter-blue text-blue-700">
@@ -149,6 +149,7 @@ function Profile() {
       </div>
     </div>
   );
+  
 }
 
 export default Profile;

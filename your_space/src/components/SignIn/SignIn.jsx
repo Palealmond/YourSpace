@@ -23,7 +23,7 @@ export default function SignIn({ onSignIn }) {
     onSignIn(res.user);
 
     // Check if user has a profile
-    const profileRes = await getProfile(res.user.id);
+    const profileRes = await getProfile(localStorage.getItem('USER_ID'));
     if (profileRes.error) {
       // User doesn't have a profile, navigate to create profile page
       navigate('/create-profile');
@@ -51,7 +51,7 @@ export default function SignIn({ onSignIn }) {
       <span>
         <Link className="text-blue-700" to="/SignUp">
           {" "}
-          Already got an account, nerd?{" "}
+          Need an account?{" "}
         </Link>
       </span>
     </>

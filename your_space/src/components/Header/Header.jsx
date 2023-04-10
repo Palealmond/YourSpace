@@ -50,7 +50,7 @@ function Header() {
           <ul className="container mx-auto flex justify-center items-center gap-5 flex-wrap">
             <li>
               <div className="flex flex-wrap px-2 gap-x-3 w-full">
-                <Link className="text-xs text-blue-700" to="/Profile/id:">
+                <Link className="text-xs text-blue-700" to="/">
                   Home
                 </Link>
                 <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Browse </a>

@@ -22,7 +22,6 @@ export async function signIn(username, password) {
       localStorage.setItem(LOCALSTORAGE_ID, response.data.id);
       console.log(response.data.id);
     }
-  
     if (response.data.username) {
       localStorage.setItem(LOCALSTORAGE_USER_NAME, response.data.username);
     }

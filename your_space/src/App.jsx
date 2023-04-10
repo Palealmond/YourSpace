@@ -54,14 +54,14 @@ function App() {
           <Header onLogout={handleLogout} />
           <Routes>
             <Route path="/" element={<Profile />} />
-            <Route path="/create-profile" element={<CreateProfile />} />
-            <Route path="/posts" element={<Posts />} />
+            <Route path="/create-profile/" element={<CreateProfile />} />
+            <Route path="/posts/" element={<Posts />} />
           </Routes>
         </>
         ) : (
             <Routes>
               <Route path="/" element={<SignIn onSignIn={handleSignIn} />} />
-              <Route path="/signup" element={<SignUp onSignUp={handleSignUp} />} />
+              <Route path="/signup/" element={<SignUp onSignUp={handleSignUp} />} />
             </Routes>
         )}
       </AuthenticationContext.Provider>
