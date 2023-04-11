@@ -145,7 +145,7 @@ function Profile() {
             </div>
           </div>
         </div>
-          <div className="post-container bg-white border-2 border-blue-400 m-2 w-full sm:w-1/3">
+          <div className="post-container bg-white border-2 border-blue-400 m-2 w-full">
             <div>
               <GetPosts/>
             </div>
