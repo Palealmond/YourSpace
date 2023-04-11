@@ -139,6 +139,13 @@ export default function Posts() {
               </div>
             </form>
           </div>
+          {posts.map((post, index) => (
+    <div key={index}>
+      <h2>{post.subject}</h2>
+      <p>{post.category}</p>
+      <p>{post.content}</p>
+    </div>
+  ))}
         </div>
       </div>
     </>

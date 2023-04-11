@@ -36,6 +36,8 @@ export default function SignIn({ onSignIn }) {
 
   return (
     <>
+      <h1 className="text-3xl font-bold text-center">Your Space</h1>
+      
       {error && <p className="text-red-500">{error}</p>}
       <form onSubmit={handleSubmit} className="max-w-sm mx-auto">
         <div className="mb-4">
@@ -51,7 +53,7 @@ export default function SignIn({ onSignIn }) {
       <span>
         <Link className="text-blue-700" to="/SignUp">
           {" "}
-          Already got an account, nerd?{" "}
+          Need an account, nerd?{" "}
         </Link>
       </span>
     </>

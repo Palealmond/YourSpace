@@ -35,7 +35,7 @@ function Profile() {
             <div className="top-profile-container flex flex-row h-full gap-2 pt-2 mb-4">
               {/* <div className="profile-header"> */}
               <img
-                src={onePman}
+                src="https://i.imgur.com/pEtjiW1.jpg"
                 alt="Profile"
                 className="h-1/2 w-1/2"
                 />

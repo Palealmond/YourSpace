@@ -70,7 +70,7 @@ export default function SignUp({ onSignUp }) {
         Sign Up
       </button>
       <p>
-        Already have an account? <Link to="/">Sign In</Link>
+        Already have an account, nerd? <Link to="/">Sign In</Link>
       </p>
     </form>
   );

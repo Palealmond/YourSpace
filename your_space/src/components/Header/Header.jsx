@@ -63,7 +63,7 @@ function Header() {
                 <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Forum </a>
                 <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Groups </a>
                 <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Layouts </a>
-                <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Layouts </a>
+                <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Layouwets </a>
                 <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Favorites </a>
                 <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">Invites </a>
                 <a className="text-xs after:content-[' | ']text-lighter-blue text-blue-700">About</a>
