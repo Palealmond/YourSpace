@@ -28,7 +28,7 @@ export default function Posts() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post('/posts/', { ...formData, title: 'haghaha' });
+      const response = await api.post('/posts/', { ...formData });
       console.log(response);;
       setPosts([...posts, response.data]);
       setFormData({ subject: '', category: '', content: '' });
