@@ -43,13 +43,13 @@ const CreateProfile = () => {
   return (
     <div>
       <div className="w-full h-full flex justify-center mt-12">
-        <div className="max-w-md md:max-w-md h-1/3 md:h-1/3 border-2 border-blue-700 flex flex-col justify-center items-center gap-4 p-2">
-          <h2 className="font-extrabold text-blue-700">Create Your Profile</h2>
+        <div className="max-w-md md:max-w-md h-1/3 md:h-1/3 border-2 border-purple-700 flex flex-col justify-center items-center gap-4 p-2">
+          <h2 className="font-extrabold text-purple-700">Create Your Profile</h2>
           <form
             className="font-bold flex flex-col justify-center items-center px-2 mx-2"
             onSubmit={handleFormSubmit}
           >
-            <label className="font-extrabold text-blue-700">
+            <label className="font-extrabold text-purple-700">
               Name:
               <input
                 className="border-2 border-black mx-2 rounded-md text-black"
@@ -60,7 +60,7 @@ const CreateProfile = () => {
               />
             </label>
             <br />
-            <label className="font-extrabold text-blue-700">
+            <label className="font-extrabold text-purple-700">
               Bio:
               <textarea
                 className="border-2 border-black mx-2 rounded-md text-black"
@@ -70,7 +70,7 @@ const CreateProfile = () => {
               />
             </label>
             <br />
-            <label className="font-extrabold text-blue-700">
+            <label className="font-extrabold text-purple-700">
               Location:
               <input
                 className="border-2 border-black mx-2 rounded-md text-black"
@@ -81,7 +81,7 @@ const CreateProfile = () => {
               />
             </label>
             <br />
-            <label className="font-extrabold text-blue-700">
+            <label className="font-extrabold text-purple-700">
               Birthdate:
               <input
                 className="border-2 border-black mx-2 rounded-md text-black"
@@ -91,7 +91,7 @@ const CreateProfile = () => {
               />
             </label>
             <br />
-            <label className="font-extrabold text-blue-700">
+            <label className="font-extrabold text-purple-700">
               Profile Image:
               <input
                 className="border-2 border-black mx-2 rounded-md text-black"
