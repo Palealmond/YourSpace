@@ -28,9 +28,11 @@ const CreateProfile = () => {
 
 
       await createProfile(formDataObj);
+
     } catch (error) {
       console.log(error);
     }
+    window.location.reload();
   };
 
   const handleImageChange = (event) => {
