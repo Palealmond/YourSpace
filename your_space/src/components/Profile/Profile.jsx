@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import onePman from "./onePman.jpg";
 
 // import { isAuthenticated } from "../../api/users";
 // import { useNavigate } from "react-router-dom";
@@ -35,10 +35,11 @@ function Profile() {
             <div className="top-profile-container flex flex-row h-full gap-2 pt-2 mb-4">
               {/* <div className="profile-header"> */}
               <img
-                src={user.profile_image}
+                src={onePman}
                 alt="Profile"
                 className="h-1/2 w-1/2"
-              />
+                />
+
               {/* </div> */}
               <div className="profile-actions w-full text-xs flex flex-col justify-start gap-y-4 h-full pt-8 font-bold text-lighter-blue text-blue-700 ">
                 <a>Bio: {user.bio}</a>
