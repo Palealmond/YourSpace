@@ -143,7 +143,6 @@ function Profile() {
               <a>0 Open Friend Requests</a>
             </div>
           </div>
-          <Posts />
         </div>
       ) : (
         <CreateProfile />
