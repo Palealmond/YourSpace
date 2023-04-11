@@ -32,19 +32,27 @@ export default function ViewPosts() {
   };
 
   return (
-    <>
-      <h2>Your Posts</h2>
-      <p>Name: {user.name}</p>
+    <div className='p-8'>
+      <div className="ml-4 mb-4">
+        <h2 className='font-bold mr-4'>Your Posts</h2>
+        <p className='text-sm'>By: {user.name}</p>
+      </div>
       {posts.map((post, index) => (
-        <div key={index}>
-          <h2>{post.title}</h2>
-          <p>{post.subject}</p>
-          <p>{post.category}</p>
+      <div>
+        <div key={index} className='border mb-4 p-4'>
+          <h2 className='font-bold'>{post.title}</h2>
+          {/* <p>{post.subject}</p> */}
+          <p className='font-semibold text-sm'>{post.category}</p>
           <p>{post.content}</p>
-          <button onClick={() => handleDelete(post.title)}>Delete</button>
-          <button onClick={() => handleEdit(post.title, post.content, post.subject, post.category)}>Edit</button>
+            </div>
+          <div className='flex gap-8'>
+            <button  type="submit"
+              className="w-full py-2 px-4 text-white bg-teal-500 rounded-md hover:bg-teal-600" onClick={() => handleDelete(post.title)}>Delete</button>
+                      <button  type="submit"
+            className="w-full py-2 px-4 text-white bg-teal-500 rounded-md hover:bg-teal-600" onClick={() => handleEdit(post.title, post.content, post.subject, post.category)}>Edit</button>
+          </div>
         </div>
       ))}
-    </>
+    </div>
   );
 }
